@@ -25,7 +25,7 @@ services:
     volumes:
       - ./flyway/sql:/flyway/sql
     networks:
-      - infra_network  # Corrigido para a rede correta
+      - infra_network
 
   # Microserviço Produto ----------------------------------------------------------------------
   produto_db:
