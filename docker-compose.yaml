@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # Microserviço Cliente ----------------------------------------------------------------------
+  cliente_db:
+    image: postgres:latest
+    container_name: cliente
+    networks:
+      - infra_network
+    environment:
+      POSTGRES_DB: clientedb
+      POSTGRES_USER: cliente_user
+      POSTGRES_PASSWORD: cliente_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+
+
+  flyway_cliente:
+    image: flyway/flyway:latest
+    environment:
+      - FLYWAY_URL=jdbc:postgresql://cliente:5432/clientedb
+      - FLYWAY_USER=cliente_user
+      - FLYWAY_PASSWORD=cliente_pass
+      - FLYWAY_SCHEMAS=public
+    command: migrate
+    depends_on:
+      - cliente_db
+    networks:
+      - infra_network
+    restart: "on-failure"
+    volumes:
+      - ./flyway/sql:/flyway/sql
+
+
+# Rede ----------------------------------------------------------------------
+networks:
+  infra_network:
+    driver: bridge
