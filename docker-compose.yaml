@@ -4,7 +4,7 @@ services:
   # Microserviço Cliente ----------------------------------------------------------------------
   cliente_db:
     image: postgres:latest
-    container_name: cliente
+    container_name: cliente_db
     networks:
       - infra_network
     environment:
@@ -12,27 +12,24 @@ services:
       POSTGRES_USER: cliente_user
       POSTGRES_PASSWORD: cliente_pass
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
+      - ./data/cliente_db:/var/lib/postgresql/data
 
-
-  flyway_cliente:
-    image: flyway/flyway:latest
-    environment:
-      - FLYWAY_URL=jdbc:postgresql://cliente:5432/clientedb
-      - FLYWAY_USER=cliente_user
-      - FLYWAY_PASSWORD=cliente_pass
-      - FLYWAY_SCHEMAS=public
-    command: migrate
-    depends_on:
-      - cliente_db
+  # Microserviço Produto ----------------------------------------------------------------------
+  produto_db:
+    image: postgres:latest
+    container_name: produto_db
     networks:
       - infra_network
-    restart: "on-failure"
+    environment:
+      POSTGRES_DB: produtodb
+      POSTGRES_USER: produto_user
+      POSTGRES_PASSWORD: produto_pass
+    ports:
+      - "5434:5432"
     volumes:
-      - ./flyway/sql:/flyway/sql
-
+      - ./data/produto_db:/var/lib/postgresql/data
 
 # Rede ----------------------------------------------------------------------
 networks:
