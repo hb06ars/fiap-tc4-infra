@@ -18,12 +18,12 @@ services:
 
   flyway_cliente:
     image: flyway/flyway:latest
-    container_name: flyway
+    container_name: flyway_cliente
     command: -url=jdbc:postgresql://cliente_db:5432/clientedb -schemas=public -user=cliente_user -password=cliente_pass migrate
     depends_on:
       - cliente_db
     volumes:
-      - ./flyway/sql:/flyway/sql
+      - ./flyway/sql/cliente:/flyway/sql
     networks:
       - infra_network
 
@@ -41,6 +41,17 @@ services:
       - "5434:5432"
     volumes:
       - ./data/produto_db:/var/lib/postgresql/data
+
+  flyway_produto:
+    image: flyway/flyway:latest
+    container_name: flyway_produto
+    command: -url=jdbc:postgresql://produto_db:5432/produtodb -schemas=public -user=produto_user -password=produto_pass migrate
+    depends_on:
+      - produto_db
+    volumes:
+      - ./flyway/sql/produto:/flyway/sql
+    networks:
+      - infra_network
 
 # Rede ----------------------------------------------------------------------
 networks:
