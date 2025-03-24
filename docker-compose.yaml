@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   # Microserviço Cliente ----------------------------------------------------------------------
@@ -15,6 +15,17 @@ services:
       - "5433:5432"
     volumes:
       - ./data/cliente_db:/var/lib/postgresql/data
+
+  flyway_cliente:
+    image: flyway/flyway:latest
+    container_name: flyway
+    command: -url=jdbc:postgresql://cliente_db:5432/clientedb -schemas=public -user=cliente_user -password=cliente_pass migrate
+    depends_on:
+      - cliente_db
+    volumes:
+      - ./flyway/sql:/flyway/sql
+    networks:
+      - infra_network  # Corrigido para a rede correta
 
   # Microserviço Produto ----------------------------------------------------------------------
   produto_db:
