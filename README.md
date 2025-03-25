@@ -19,3 +19,5 @@
 > - senha: **gerenciamento_pass**
 > - bd: **gerenciamentodb**
 
+### COLLECTIONS
+> Abra a pasta collections para poder testar no postman.

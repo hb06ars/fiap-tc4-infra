@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "4db3691d-67a2-4d5c-a902-2a3bf7d21f08",
+		"name": "Tech Challenge 4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7970060"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Buscar específico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/cliente?cpf=333",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"cliente"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "333"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca paginada",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/cliente/filtro?nome=José Henrique",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"cliente",
+								"filtro"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "José Henrique"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Salvar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Jorge\",\r\n    \"cpf\": \"333\",\r\n    \"dataNascimento\": \"1988-02-05\",\r\n    \"rua\": \"Rua Teste\",\r\n    \"numero\": 295,\r\n    \"cep\": \"05888844\",\r\n    \"cidade\": \"São Paulo\",\r\n    \"estado\": \"SP\",\r\n    \"complemento\": \"Casa\",\r\n    \"dtCriacao\": \"2025-03-25\",\r\n    \"dtAtualizacao\": \"2025-03-25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Jorge Henrique\",\r\n    \"cpf\": \"333\",\r\n    \"dataNascimento\": \"1988-02-05\",\r\n    \"rua\": \"Rua Teste\",\r\n    \"numero\": 295,\r\n    \"cep\": \"05888844\",\r\n    \"cidade\": \"São Paulo\",\r\n    \"estado\": \"SP\",\r\n    \"complemento\": \"Casa\",\r\n    \"dtCriacao\": \"2025-03-25\",\r\n    \"dtAtualizacao\": \"2025-03-25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/cliente/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"cliente",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Jorge Henrique\",\r\n    \"cpf\": \"333\",\r\n    \"dataNascimento\": \"1988-02-05\",\r\n    \"rua\": \"Rua Teste\",\r\n    \"numero\": 295,\r\n    \"cep\": \"05888844\",\r\n    \"cidade\": \"São Paulo\",\r\n    \"estado\": \"SP\",\r\n    \"complemento\": \"Casa\",\r\n    \"dtCriacao\": \"2025-03-25\",\r\n    \"dtAtualizacao\": \"2025-03-25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/cliente/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"cliente",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
