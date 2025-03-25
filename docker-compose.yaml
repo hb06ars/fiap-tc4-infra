@@ -53,6 +53,32 @@ services:
     networks:
       - infra_network
 
+  # Microserviço Estoque ----------------------------------------------------------------------
+  estoque_db:
+    image: postgres:latest
+    container_name: estoque_db
+    networks:
+      - infra_network
+    environment:
+      POSTGRES_DB: estoquedb
+      POSTGRES_USER: estoque_user
+      POSTGRES_PASSWORD: estoque_pass
+    ports:
+      - "5435:5432"
+    volumes:
+      - ./data/estoque_db:/var/lib/postgresql/data
+
+  flyway_estoque:
+    image: flyway/flyway:latest
+    container_name: flyway_estoque
+    command: -url=jdbc:postgresql://estoque_db:5432/estoquedb -schemas=public -user=estoque_user -password=estoque_pass migrate
+    depends_on:
+      - estoque_db
+    volumes:
+      - ./flyway/sql/estoque:/flyway/sql
+    networks:
+      - infra_network
+
 # Rede ----------------------------------------------------------------------
 networks:
   infra_network:
