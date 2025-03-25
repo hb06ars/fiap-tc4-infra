@@ -19,5 +19,3 @@ BEGIN
         CREATE UNIQUE INDEX idx_cpf_cliente ON cliente (cpf);
     END IF;
 END $$;
-
-
