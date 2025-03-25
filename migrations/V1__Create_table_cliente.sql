@@ -18,4 +18,8 @@ BEGIN
     IF NOT EXISTS (SELECT 1 FROM pg_indexes WHERE tablename = 'cliente' AND indexname = 'idx_cpf_cliente') THEN
         CREATE UNIQUE INDEX idx_cpf_cliente ON cliente (cpf);
     END IF;
+
+    IF NOT EXISTS (SELECT 1 FROM pg_indexes WHERE tablename = 'cliente' AND indexname = 'idx_nome_cliente') THEN
+        CREATE INDEX idx_nome_cliente ON cliente (nome);
+    END IF;
 END $$;

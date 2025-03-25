@@ -1,137 +1,36 @@
 version: '3.9'
 
 services:
-  # Microserviço Cliente ----------------------------------------------------------------------
-  cliente_db:
+  gerenciamento:
     image: postgres:latest
-    container_name: cliente_db
-    networks:
-      - infra_network
+    container_name: gerenciamento
+    restart: always
     environment:
-      POSTGRES_DB: clientedb
-      POSTGRES_USER: cliente_user
-      POSTGRES_PASSWORD: cliente_pass
+      POSTGRES_USER: gerenciamento_user
+      POSTGRES_PASSWORD: gerenciamento_pass
+      POSTGRES_DB: gerenciamentodb
     ports:
-      - "5433:5432"
+      - "5432:5432"
     volumes:
-      - ./data/cliente_db:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - infra_network
 
-  flyway_cliente:
+  flyway:
     image: flyway/flyway:latest
-    container_name: flyway_cliente
-    command: -url=jdbc:postgresql://cliente_db:5432/clientedb -schemas=public -user=cliente_user -password=cliente_pass migrate
+    container_name: flyway_migrations
     depends_on:
-      - cliente_db
+      - gerenciamento
+    command: -url=jdbc:postgresql://gerenciamento:5432/gerenciamentodb -user=gerenciamento_user -password=gerenciamento_pass -locations=filesystem:/migrations -baselineOnMigrate=true migrate
     volumes:
-      - ./flyway/sql/cliente:/flyway/sql
+      - ./migrations:/migrations
     networks:
       - infra_network
 
-  # Microserviço Produto ----------------------------------------------------------------------
-  produto_db:
-    image: postgres:latest
-    container_name: produto_db
-    networks:
-      - infra_network
-    environment:
-      POSTGRES_DB: produtodb
-      POSTGRES_USER: produto_user
-      POSTGRES_PASSWORD: produto_pass
-    ports:
-      - "5434:5432"
-    volumes:
-      - ./data/produto_db:/var/lib/postgresql/data
+volumes:
+  postgres_data:
 
-  flyway_produto:
-    image: flyway/flyway:latest
-    container_name: flyway_produto
-    command: -url=jdbc:postgresql://produto_db:5432/produtodb -schemas=public -user=produto_user -password=produto_pass migrate
-    depends_on:
-      - produto_db
-    volumes:
-      - ./flyway/sql/produto:/flyway/sql
-    networks:
-      - infra_network
-
-  # Microserviço Estoque ----------------------------------------------------------------------
-  estoque_db:
-    image: postgres:latest
-    container_name: estoque_db
-    networks:
-      - infra_network
-    environment:
-      POSTGRES_DB: estoquedb
-      POSTGRES_USER: estoque_user
-      POSTGRES_PASSWORD: estoque_pass
-    ports:
-      - "5435:5432"
-    volumes:
-      - ./data/estoque_db:/var/lib/postgresql/data
-
-  flyway_estoque:
-    image: flyway/flyway:latest
-    container_name: flyway_estoque
-    command: -url=jdbc:postgresql://estoque_db:5432/estoquedb -schemas=public -user=estoque_user -password=estoque_pass migrate
-    depends_on:
-      - estoque_db
-    volumes:
-      - ./flyway/sql/estoque:/flyway/sql
-    networks:
-      - infra_network
-
-  # Microserviço Pedido ----------------------------------------------------------------------
-  pedido_db:
-    image: postgres:latest
-    container_name: pedido_db
-    networks:
-      - infra_network
-    environment:
-      POSTGRES_DB: pedidodb
-      POSTGRES_USER: pedido_user
-      POSTGRES_PASSWORD: pedido_pass
-    ports:
-      - "5436:5432"
-    volumes:
-      - ./data/pedido_db:/var/lib/postgresql/data
-
-  flyway_pedido:
-    image: flyway/flyway:latest
-    container_name: flyway_pedido
-    command: -url=jdbc:postgresql://pedido_db:5432/pedidodb -schemas=public -user=pedido_user -password=pedido_pass migrate
-    depends_on:
-      - pedido_db
-    volumes:
-      - ./flyway/sql/pedido:/flyway/sql
-    networks:
-      - infra_network
-
-  # Microserviço Pagamento ----------------------------------------------------------------------
-  pagamento_db:
-    image: postgres:latest
-    container_name: pagamento_db
-    networks:
-      - infra_network
-    environment:
-      POSTGRES_DB: pagamentodb
-      POSTGRES_USER: pagamento_user
-      POSTGRES_PASSWORD: pagamento_pass
-    ports:
-      - "5437:5432"
-    volumes:
-      - ./data/pagamento_db:/var/lib/postgresql/data
-
-  flyway_pagamento:
-    image: flyway/flyway:latest
-    container_name: flyway_pagamento
-    command: -url=jdbc:postgresql://pagamento_db:5432/pagamentodb -schemas=public -user=pagamento_user -password=pagamento_pass migrate
-    depends_on:
-      - pagamento_db
-    volumes:
-      - ./flyway/sql/pagamento:/flyway/sql
-    networks:
-      - infra_network
-
-# Rede ----------------------------------------------------------------------
+# REDE
 networks:
   infra_network:
     driver: bridge
