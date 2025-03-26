@@ -7,8 +7,98 @@
 	},
 	"item": [
 		{
+			"name": "Receiver - Fazer Pedido",
+			"item": [
+				{
+					"name": "Solicitar Pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clienteId\": 1,\r\n    \"numeroCartaoCredito\": 1,\r\n    \"itensPedidoList\": [\r\n        {\r\n            \"skuProduto\": \"432\",\r\n            \"quantidade\": 4\r\n        },\r\n        {\r\n            \"skuProduto\": \"455\",\r\n            \"quantidade\": 3\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/receiver",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"receiver"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Cliente",
 			"item": [
+				{
+					"name": "Salvar Clientes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fulano de Tal\",\r\n    \"cpf\": \"22553344887\",\r\n    \"dataNascimento\": \"1988-02-05\",\r\n    \"rua\": \"Rua Teste\",\r\n    \"numero\": 295,\r\n    \"cep\": \"05888844\",\r\n    \"cidade\": \"São Paulo\",\r\n    \"estado\": \"SP\",\r\n    \"complemento\": \"Casa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Fulano de Tal Alterado\",\r\n    \"cpf\": \"22553344887\",\r\n    \"dataNascimento\": null,\r\n    \"rua\": null,\r\n    \"numero\": null,\r\n    \"cep\": null,\r\n    \"cidade\": null,\r\n    \"estado\": null,\r\n    \"complemento\": null,\r\n    \"dtCriacao\": null,\r\n    \"dtAtualizacao\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/cliente/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"cliente",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Buscar específico",
 					"request": {
@@ -52,7 +142,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8085/cliente/filtro?nome=José Henrique",
+							"raw": "http://localhost:8085/cliente/filtro?nome=Fulano de Tal Alterado",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -65,65 +155,8 @@
 							"query": [
 								{
 									"key": "nome",
-									"value": "José Henrique"
+									"value": "Fulano de Tal Alterado"
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Salvar",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Jorge\",\r\n    \"cpf\": \"333\",\r\n    \"dataNascimento\": \"1988-02-05\",\r\n    \"rua\": \"Rua Teste\",\r\n    \"numero\": 295,\r\n    \"cep\": \"05888844\",\r\n    \"cidade\": \"São Paulo\",\r\n    \"estado\": \"SP\",\r\n    \"complemento\": \"Casa\",\r\n    \"dtCriacao\": \"2025-03-25\",\r\n    \"dtAtualizacao\": \"2025-03-25\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8085/cliente",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8085",
-							"path": [
-								"cliente"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Atualizar",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Jorge Henrique\",\r\n    \"cpf\": \"333\",\r\n    \"dataNascimento\": \"1988-02-05\",\r\n    \"rua\": \"Rua Teste\",\r\n    \"numero\": 295,\r\n    \"cep\": \"05888844\",\r\n    \"cidade\": \"São Paulo\",\r\n    \"estado\": \"SP\",\r\n    \"complemento\": \"Casa\",\r\n    \"dtCriacao\": \"2025-03-25\",\r\n    \"dtAtualizacao\": \"2025-03-25\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8085/cliente/4",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8085",
-							"path": [
-								"cliente",
-								"4"
 							]
 						}
 					},
@@ -136,7 +169,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Jorge Henrique\",\r\n    \"cpf\": \"333\",\r\n    \"dataNascimento\": \"1988-02-05\",\r\n    \"rua\": \"Rua Teste\",\r\n    \"numero\": 295,\r\n    \"cep\": \"05888844\",\r\n    \"cidade\": \"São Paulo\",\r\n    \"estado\": \"SP\",\r\n    \"complemento\": \"Casa\",\r\n    \"dtCriacao\": \"2025-03-25\",\r\n    \"dtAtualizacao\": \"2025-03-25\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -144,7 +177,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8085/cliente/4",
+							"raw": "http://localhost:8085/cliente/8",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -152,7 +185,315 @@
 							"port": "8085",
 							"path": [
 								"cliente",
-								"4"
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "Salvar Produtos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Paracetamol 100mg\",\r\n    \"sku\": \"123456782\",\r\n    \"preco\": 9.95\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/produto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Paracetamol 250mg\",\r\n    \"sku\": \"123456789\",\r\n    \"preco\": 9.85,\r\n    \"dt_criacao\": \"2025-03-26T09:33:29.1490808\",\r\n    \"dt_atualizacao\": \"2025-03-26T09:33:29.1490808\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/produto/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"produto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar específico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/produto?sku=123456789",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"produto"
+							],
+							"query": [
+								{
+									"key": "sku",
+									"value": "123456789"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca paginada",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/produto/filtro?Paracetamol 250mg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"produto",
+								"filtro"
+							],
+							"query": [
+								{
+									"key": "Paracetamol 250mg",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/produto/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"produto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estoques",
+			"item": [
+				{
+					"name": "Salvar Produtos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"produtoId\": 3,\r\n    \"quantidade\": 11\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8089/estoque",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"estoque"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar estoque passando ProdutoId",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantidade\": 11\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8089/estoque/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"estoque",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar produto no Estoque pelo ProdutoId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8089/estoque?produtoId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"estoque"
+							],
+							"query": [
+								{
+									"key": "produtoId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca paginada pelo ProdutoId ou Quantidade",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8089/estoque/filtro?produtoId=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"estoque",
+								"filtro"
+							],
+							"query": [
+								{
+									"key": "produtoId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar pelo ProdutoId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8089/estoque/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"estoque",
+								"2"
 							]
 						}
 					},
