@@ -19,5 +19,8 @@
 > - senha: **gerenciamento_pass**
 > - bd: **gerenciamentodb**
 
+### KAFKA
+> - Link url KafkaDrop: **http://localhost:9000/**
+
 ### COLLECTIONS
 > Abra a pasta collections para poder testar no postman.
