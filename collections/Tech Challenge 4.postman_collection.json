@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"clienteId\": 1,\r\n    \"numeroCartaoCredito\": 1,\r\n    \"itensPedidoList\": [\r\n        {\r\n            \"skuProduto\": \"432\",\r\n            \"quantidade\": 4\r\n        },\r\n        {\r\n            \"skuProduto\": \"455\",\r\n            \"quantidade\": 3\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"clienteId\": 2,\r\n    \"numeroCartaoCredito\": \"1234567891123\",\r\n    \"itensPedidoList\": [\r\n        {\r\n            \"skuProduto\": \"123456789\",\r\n            \"quantidade\": 20\r\n        },\r\n        {\r\n            \"skuProduto\": \"123456782\",\r\n            \"quantidade\": 30\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -40,7 +40,7 @@
 			]
 		},
 		{
-			"name": "Cliente",
+			"name": "Clientes",
 			"item": [
 				{
 					"name": "Salvar Clientes",
@@ -100,7 +100,7 @@
 					"response": []
 				},
 				{
-					"name": "Buscar específico",
+					"name": "Buscar por CPF",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -119,6 +119,26 @@
 									"key": "cpf",
 									"value": "333"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/cliente/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"cliente",
+								"1"
 							]
 						}
 					},
@@ -393,7 +413,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8089/estoque/3",
+							"raw": "http://localhost:8089/estoque/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -401,7 +421,7 @@
 							"port": "8089",
 							"path": [
 								"estoque",
-								"3"
+								"2"
 							]
 						}
 					},
@@ -413,7 +433,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8089/estoque?produtoId=2",
+							"raw": "http://localhost:8089/estoque?produtoId=3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -425,7 +445,7 @@
 							"query": [
 								{
 									"key": "produtoId",
-									"value": "2"
+									"value": "3"
 								}
 							]
 						}
