@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"clienteId\": 1,\r\n    \"numeroCartaoCredito\": \"1234567891234\",\r\n    \"itensPedidoList\": [\r\n        {\r\n            \"skuProduto\": \"123456789\",\r\n            \"quantidade\": 20\r\n        },\r\n        {\r\n            \"skuProduto\": \"123456782\",\r\n            \"quantidade\": 30\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"clienteId\": 1,\r\n    \"numeroCartaoCredito\": \"1234567891234\",\r\n    \"itensPedidoList\": [\r\n        {\r\n            \"skuProduto\": \"123456784\",\r\n            \"quantidade\": 2\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -44,7 +44,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"clienteId\": 1,\r\n    \"numeroCartaoCredito\": \"0000000000000\",\r\n    \"itensPedidoList\": [\r\n        {\r\n            \"skuProduto\": \"123456789\",\r\n            \"quantidade\": 20\r\n        },\r\n        {\r\n            \"skuProduto\": \"123456782\",\r\n            \"quantidade\": 30\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"clienteId\": 1,\r\n    \"numeroCartaoCredito\": \"00000000000000\",\r\n    \"itensPedidoList\": [\r\n        {\r\n            \"skuProduto\": \"123456784\",\r\n            \"quantidade\": 2\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
