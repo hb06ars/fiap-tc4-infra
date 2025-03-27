@@ -10,13 +10,41 @@
 			"name": "Receiver - Fazer Pedido",
 			"item": [
 				{
-					"name": "Solicitar Pedido",
+					"name": "Solicitar Pedido com Saldo no Cartão",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"clienteId\": 2,\r\n    \"numeroCartaoCredito\": \"1234567891123\",\r\n    \"itensPedidoList\": [\r\n        {\r\n            \"skuProduto\": \"123456789\",\r\n            \"quantidade\": 20\r\n        },\r\n        {\r\n            \"skuProduto\": \"123456782\",\r\n            \"quantidade\": 30\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"clienteId\": 1,\r\n    \"numeroCartaoCredito\": \"1234567891234\",\r\n    \"itensPedidoList\": [\r\n        {\r\n            \"skuProduto\": \"123456789\",\r\n            \"quantidade\": 20\r\n        },\r\n        {\r\n            \"skuProduto\": \"123456782\",\r\n            \"quantidade\": 30\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8086/receiver",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"receiver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Solicitar Pedido sem Saldo no Cartão",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clienteId\": 1,\r\n    \"numeroCartaoCredito\": \"0000000000000\",\r\n    \"itensPedidoList\": [\r\n        {\r\n            \"skuProduto\": \"123456789\",\r\n            \"quantidade\": 20\r\n        },\r\n        {\r\n            \"skuProduto\": \"123456782\",\r\n            \"quantidade\": 30\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
