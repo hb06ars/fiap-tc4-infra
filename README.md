@@ -8,6 +8,22 @@
 > - Suba o Docker Desktop (caso seja o Windows).
 > - Execute o arquivo: 
 > - **docker-compose.yaml**
+> - Subir os microserviços abaixo.
+
+### MICROSERVIÇOS PARA SUBIR
+> - Subir o docker compose do INFRA.
+> - fiap-tc4-pedido-receiver
+> - fiap-tc4-cliente
+> - fiap-tc4-estoque
+> - fiap-tc4-pagamento
+> - fiap-tc4-pedido
+> - fiap-tc4-produto
+
+### TESTAR APLICAÇÃO
+> - Abra o arquivo **Tech Challenge 4.postman_collection.json**
+> - Fica na pasta **collections**.
+> - Execute a collection: **Receiver - Fazer Pedido**
+> - Há duas requisições que fazem o teste **COM SALDO** no cartão e **SEM SALDO** no cartão 
  
 ### ARQUITETURA
 > - Linguagem: **Java 17**
