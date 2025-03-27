@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS pagamento (
     id SERIAL PRIMARY KEY,
     pedido_id INT NOT NULL REFERENCES pedido(id) ON DELETE CASCADE,
     idPagamento VARCHAR(255),
+    valor_total numeric(10, 2) NULL,
     dt_pagamento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     status_pagamento VARCHAR(50) DEFAULT 'ABERTO',
     dt_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
