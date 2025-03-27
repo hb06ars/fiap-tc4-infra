@@ -105,7 +105,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Fulano de Tal Alterado\",\r\n    \"cpf\": \"22553344887\",\r\n    \"dataNascimento\": null,\r\n    \"rua\": null,\r\n    \"numero\": null,\r\n    \"cep\": null,\r\n    \"cidade\": null,\r\n    \"estado\": null,\r\n    \"complemento\": null,\r\n    \"dtCriacao\": null,\r\n    \"dtAtualizacao\": null\r\n}",
+							"raw": "{\r\n    \"nome\": \"Fulano de Tal Alterado\",\r\n    \"cpf\": \"32553344887\",\r\n    \"dataNascimento\": \"1988-02-09\",\r\n    \"rua\": \"Rua Teste Alterada\",\r\n    \"numero\": 2959,\r\n    \"cep\": \"34488849\",\r\n    \"cidade\": \"Rio de Janeiro\",\r\n    \"estado\": \"RJ\",\r\n    \"complemento\": \"Apartamento\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -113,7 +113,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8085/cliente/8",
+							"raw": "http://localhost:8085/cliente/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -121,7 +121,7 @@
 							"port": "8085",
 							"path": [
 								"cliente",
-								"8"
+								"1"
 							]
 						}
 					},
@@ -133,7 +133,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8085/cliente?cpf=333",
+							"raw": "http://localhost:8085/cliente?cpf=32553344887",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -145,7 +145,7 @@
 							"query": [
 								{
 									"key": "cpf",
-									"value": "333"
+									"value": "32553344887"
 								}
 							]
 						}
@@ -225,7 +225,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8085/cliente/8",
+							"raw": "http://localhost:8085/cliente/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -233,7 +233,7 @@
 							"port": "8085",
 							"path": [
 								"cliente",
-								"8"
+								"1"
 							]
 						}
 					},
@@ -251,7 +251,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Paracetamol 100mg\",\r\n    \"sku\": \"123456782\",\r\n    \"preco\": 9.95\r\n}",
+							"raw": "{\r\n    \"nome\": \"Paracetamol 50mg\",\r\n    \"sku\": \"123456784\",\r\n    \"preco\": 9.95\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -279,7 +279,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Paracetamol 250mg\",\r\n    \"sku\": \"123456789\",\r\n    \"preco\": 9.85,\r\n    \"dt_criacao\": \"2025-03-26T09:33:29.1490808\",\r\n    \"dt_atualizacao\": \"2025-03-26T09:33:29.1490808\"\r\n}",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Paracetamol 250mg\",\r\n    \"sku\": \"123456789\",\r\n    \"preco\": 9.85\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -379,7 +379,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8088/produto/1",
+							"raw": "http://localhost:8088/produto/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -387,7 +387,7 @@
 							"port": "8088",
 							"path": [
 								"produto",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -405,7 +405,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"produtoId\": 3,\r\n    \"quantidade\": 11\r\n}",
+							"raw": "{\r\n    \"produtoId\": 1,\r\n    \"quantidade\": 11\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -433,7 +433,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"quantidade\": 11\r\n}",
+							"raw": "{\r\n    \"quantidade\": 100\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -441,7 +441,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8089/estoque/2",
+							"raw": "http://localhost:8089/estoque/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -449,7 +449,7 @@
 							"port": "8089",
 							"path": [
 								"estoque",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -461,7 +461,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8089/estoque?produtoId=3",
+							"raw": "http://localhost:8089/estoque?produtoId=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -473,7 +473,7 @@
 							"query": [
 								{
 									"key": "produtoId",
-									"value": "3"
+									"value": "1"
 								}
 							]
 						}
@@ -498,7 +498,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8089/estoque/filtro?produtoId=2",
+							"raw": "http://localhost:8089/estoque/filtro?produtoId=1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -511,7 +511,7 @@
 							"query": [
 								{
 									"key": "produtoId",
-									"value": "2"
+									"value": "1"
 								}
 							]
 						}
@@ -533,7 +533,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8089/estoque/2",
+							"raw": "http://localhost:8089/estoque/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -541,7 +541,7 @@
 							"port": "8089",
 							"path": [
 								"estoque",
-								"2"
+								"1"
 							]
 						}
 					},
