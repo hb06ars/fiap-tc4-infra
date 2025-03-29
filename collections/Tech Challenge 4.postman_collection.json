@@ -379,7 +379,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8088/produto/2",
+							"raw": "http://localhost:8088/produto/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -387,7 +387,7 @@
 							"port": "8088",
 							"path": [
 								"produto",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -399,13 +399,13 @@
 			"name": "Estoques",
 			"item": [
 				{
-					"name": "Salvar Produtos",
+					"name": "Salvar Estoque",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"produtoId\": 1,\r\n    \"quantidade\": 11\r\n}",
+							"raw": "{\r\n    \"produtoId\": 1,\r\n    \"quantidade\": 100\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -433,7 +433,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"quantidade\": 100\r\n}",
+							"raw": "{\r\n    \"quantidade\": 150\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
